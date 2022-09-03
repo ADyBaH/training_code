@@ -27,4 +27,4 @@ function last(a) {return a[a.length - 1]}
 function init(a) {return a.slice(0, -1)}
 
 function tail(a) {return a.slice(1)}
-//just cleaner codeю
+//just cleaner code
