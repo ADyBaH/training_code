@@ -14,11 +14,19 @@ class CoffeMachine {
   }
 
   constructor(power) {
-    this.power = power;
+    this._power = power;
     console.log(`Создана кофеварка, мощностью: ${power}`);
+  }
+
+  get power() {
+    return this._power;
   }
 }
 
 let coffeMachine = new CoffeMachine(100);
-
+// свойство power установленно только для чтения и не доступно из вне.
+console.log(`Мощность: ${coffeMachine.power}W`);
+coffeMachine.power = 25;
+console.log(`Мощность: ${coffeMachine.power}W`);
+// защищенное свойство выводит ошибку.
 coffeMachine.waterAmount = -10;
