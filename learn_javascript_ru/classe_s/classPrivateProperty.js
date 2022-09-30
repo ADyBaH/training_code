@@ -19,6 +19,13 @@ class CoffeeMachine {
   
 }
 
+class MegaCoffeeMachine extends CoffeeMachine {
+  method() {
+    // Мы не можем прочитать приватное свойство:
+    //console.log( this.#waterAmount ); // Error: can only access from CoffeeMachine
+  }
+}
+
 let machine = new CoffeeMachine();
 
 // Мы можем писать в приватное свойство, но не можем читать его.
