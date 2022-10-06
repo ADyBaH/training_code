@@ -7,7 +7,11 @@ try {
   console.log("End block try");
 } catch(err) {
   // Выводим в консоль лог информацию об ошибке.
-  console.log(`Error type: ${err}`)
+  console.log(`Error type: ${err}`);
+  // Вывод ошибки по частям.
+  console.log(err.name);
+  console.log(err.message);
+  console.log(err.stack);
 }
 
 // JS не проверяет синтаксис:
