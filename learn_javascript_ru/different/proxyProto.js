@@ -7,8 +7,9 @@ let user = {
 
 let userProxy = new Proxy (user, {
   get(target, prop, receiver) {
-    return Reflect.get(target, prop, receiver);
     // return target[prop];
+    return Reflect.get(target, prop, receiver);
+    // кототкая запись ловушки: return Reflect.get(...arguments);
   }
 });
 
