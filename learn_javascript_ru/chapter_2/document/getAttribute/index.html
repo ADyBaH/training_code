@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div data-widget-name="menu">Choose the genre</div>
+
+  <script>
+    // my solution:
+    const dataWidgetName1 = document.body.firstElementChild
+    console.log(dataWidgetName1.dataset.widgetName)
+
+    // better solution:
+    let elem = document.querySelector('[data-widget-name]');
+
+    // read value
+    console.log(elem.dataset.widgetName);
+    // or
+    console.log(elem.getAttribute('data-widget-name'));
+  </script>
+</body>
+</html>
