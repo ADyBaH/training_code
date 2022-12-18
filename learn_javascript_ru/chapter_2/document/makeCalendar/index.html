@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <!-- Напишите функцию createCalendar(elem, year, month).
+  Вызов функции должен создать календарь для заданного месяца 
+  month в году year и вставить его в elem. -->
+
+  <script>
+    document.body.innerHTML = "<div id=\"calendar\"></div>";
+    const divCalendar = document.body.firstElementChild;
+
+    const getDay = (date) => (date.getDay() === 0)? 7 - 1: date.getDay() - 1;
+
+
+    function createCalendar(elem, year, month) {
+      let newMonth = month - 1;
+      let date = new Date (year, newMonth);
+      let table = "<table border=\"1\">\
+        <tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>";
+
+      for(let i = 0; i < getDay(date); i += 1) {
+        table += "<td></td>"
+      }
+
+      while(date.getMonth() == newMonth) {
+        table += `<td>${date.getDate()}</td>`;
+
+        if (getDay(date) % 7 == 6) table += "</tr><tr>";
+        
+        date.setDate(date.getDate() + 1);
+      }
+
+      if(getDay(date) != 0) {
+        for (let i = getDay(date); i < 7; i += 1) {
+          table += "<td></td>";
+        }
+      }
+
+      table += "</tr></table>";
+
+      elem.innerHTML = table;
+    }
+    createCalendar(divCalendar, 2012, 9);
+  </script>
+</body>
+</html>
