@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Создайте цветные часы.
+  Для стилизации используйте HTML/CSS, 
+  JavaScript должен только обновлять время в элементах. -->
+  <script>
+    
+    document.body.innerHTML = "\
+    <div id=\"box\"><span style=\"color: red;\" id=\"hours\">hh</span>:\
+<span style=\"color: green;\" id=\"minuts\">mm</span>:\
+<span style=\"color: blue;\" id=\"seconds\">ss</span></div>\
+<div id=\"buttons\"><button id=\"start\">start</button>\
+  <button id=\"stop\">stop</button></div>";
+  
+  let startClock;
+  
+  function fStart() {
+    startClock = setInterval(() => {
+    const hourse = new Date().getHours();
+    const minuts = new Date().getMinutes();
+    const seconds = new Date().getSeconds();
+
+    document.getElementById("hours").innerText = (hourse <= 9)? `0${hourse}`: hourse;
+    document.getElementById("minuts").innerText = (minuts <= 9)? `0${minuts}`: minuts;
+    document.getElementById("seconds").innerText = (seconds <= 9)? `0${seconds}`: seconds;
+  }, 1000);
+  }
+  
+  let buttonStart = document.getElementById("start");
+  buttonStart.addEventListener('click', fStart);
+  function fStop() {
+    clearInterval(startClock);
+  }
+  let buttonStop = document.getElementById("stop");
+  buttonStop.addEventListener('click', fStop);
+  </script>
+</body>
+</html>
