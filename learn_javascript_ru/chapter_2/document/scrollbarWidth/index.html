@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let div = document.createElement('div');
+
+    div.style.overflow = 'scroll';
+    div.style.width = '50px';
+    div.style.height = '50px';
+
+    document.body.append(div)
+
+    // Узнать размер нижней прокрутки.
+    let scrollBottom = div.scrollHeight - div.scrollTop - div.clientHeight;
+    console.log(scrollBottom )
+    // Узнать ширину прокрутки.
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+    console.log(scrollWidth)
+  </script>
+</body>
+</html>
