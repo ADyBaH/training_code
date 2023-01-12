@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #field {
+        width: 200px;
+        border: 10px groove black;
+        background-color: #00ff00;
+        position: relative;
+      }
+
+      #ball {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Каковы координаты центра поля?
+    Вычислите их и используйте, чтобы поместить мяч в центр поля: -->
+    <div id="field">
+      <img src="https://en.js.cx/clipart/ball.svg" id="ball" /> . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . .
+    </div>
+    <script>
+      const element = document.body.firstElementChild;
+      const ball = element.firstElementChild;
+      ball.style.top = `${Math.round(
+        element.clientHeight / 2 - ball.offsetHeight / 2
+      )}px`;
+      ball.style.left = `${element.clientWidth / 2 - ball.offsetWidth / 2}px`;
+    </script>
+  </body>
+</html>
