@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <script>
+      document.onclick = function (e) {
+        // показывает координаты точки клика
+        coords.innerHTML = e.clientX + ":" + e.clientY;
+      };
+    </script>
+    <style>
+      body {
+        padding: 20px 0 0 20px;
+        cursor: pointer;
+      }
+
+      #field {
+        overflow: hidden;
+        width: 200px;
+        height: 150px;
+        border-top: 10px solid black;
+        border-right: 10px solid gray;
+        border-bottom: 10px solid gray;
+        border-left: 10px solid black;
+        background-color: #00ff00;
+        font: 10px/1.2 monospace;
+      }
+
+      .triangle-right {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-left: 20px solid red;
+        text-indent: -20px;
+        font: 12px/1 monospace;
+      }
+    </style>
+  </head>
+
+  <body>
+    Кликните в любом месте для получения координат в контексте окна.
+    <br />
+    Это для тестирования, чтобы проверить результат, который вы получили с
+    помощью JavaScript.
+    <br />
+    <div id="coords">(координаты покажутся здесь)</div>
+
+    <div id="field">
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      .
+    </div>
+
+    <div class="triangle-right" style="left: -20px; top: -176px">1</div>
+    <div class="triangle-right" style="left: -10px; top: -178px">3</div>
+    <div class="triangle-right" style="left: 190px; top: -40px">4</div>
+    <div class="triangle-right" style="left: 200px; top: -42px">2</div>
+
+    <script>
+      const field = document.querySelector("#field");
+      const fieldCoordinat = field.getBoundingClientRect();
+
+      console.log(fieldCoordinat)
+
+      const answer1Div = document.createElement("div");
+      answer1Div.innerHTML = `Ответ 1:
+        ${Math.floor(fieldCoordinat.left)}:${Math.floor(fieldCoordinat.top)}`;
+
+      document.body.append(answer1Div);
+
+      const answer2Div = document.createElement("div");
+      answer2Div.innerHTML = `Ответ 2: 
+        ${Math.floor(fieldCoordinat.right)}:${Math.floor(fieldCoordinat.bottom)}`;
+
+      document.body.append(answer2Div);
+
+      const answer3Div = document.createElement("div");
+      answer3Div.innerHTML = `Ответ 3: ${
+          Math.floor(fieldCoordinat.left + field.clientLeft)
+        }:${
+          Math.floor(fieldCoordinat.top + field.clientTop)
+        }`;
+
+      document.body.append(answer3Div);
+
+      const answer4Div = document.createElement("div");
+      answer4Div.innerHTML = `Ответ 3: ${
+          Math.floor(fieldCoordinat.left + field.clientLeft + field.clientWidth)
+        }:${
+          Math.floor(fieldCoordinat.top + field.clientTop+ field.clientWidth)
+        }`;
+
+      document.body.append(answer4Div);
+    </script>
+  </body>
+</html>
