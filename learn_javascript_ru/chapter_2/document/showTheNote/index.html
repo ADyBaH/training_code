@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="index.css" />
   </head>
 
-  <body>
+  <body style="height: 2000px">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
       sint atque dolorum fuga ad incidunt voluptatum error fugiat animi amet!
@@ -38,6 +38,7 @@
        */
       function positionAt(anchor, position, elem) {
         const coordAnchor = anchor.getBoundingClientRect();
+        elem.style.position = "absolute"
         if (position === "top") {
           elem.style[position] = `${
             coordAnchor[position] - elem.offsetHeight
