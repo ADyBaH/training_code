@@ -46,7 +46,6 @@
           elem.style.left = `${coordAnchor.left}px`;
         }
         if (position === "right") {
-
           elem.style.left = `${
             coordAnchor.left + anchor.offsetWidth
           }px`;
@@ -56,6 +55,24 @@
           elem.style.left = `${coordAnchor.left}px`;
           elem.style.top = `${
             coordAnchor.top + anchor.offsetHeight
+          }px`;
+        }
+        if (position === "top-in") {
+          elem.style[position.split('-')[0]] = `${
+            coordAnchor[position.split('-')[0]]
+          }px`;
+          elem.style.left = `${coordAnchor.left}px`;
+        }
+        if (position === "right-in") {
+          elem.style.left = `${
+            anchor.offsetWidth
+          }px`;
+          elem.style.top = `${coordAnchor.top}px`;
+        }
+        if (position === "bottom-in") {
+          elem.style.left = `${coordAnchor.left}px`;
+          elem.style.top = `${
+            coordAnchor.top + anchor.offsetHeight - elem.offsetHeight
           }px`;
         }
       }
@@ -77,8 +94,11 @@
       let blockquote = document.querySelector("blockquote");
 
       showNote(blockquote, "top", "note above");
+      showNote(blockquote, "top-in", "note above-in");
       showNote(blockquote, "right", "note at the right");
+      showNote(blockquote, "right-in", "note at the right-in");
       showNote(blockquote, "bottom", "note below");
+      showNote(blockquote, "bottom-in", "note below-in");
     </script>
   </body>
 </html>
