@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      #arrowClose {
+        color: green;
+      }
+      #arrowOpen {
+        color: green;
+      }
+      #list {
+        margin: 0;
+        list-style: none;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span id="arrowClose">▶</span>
+      <span id="arrowOpen" hidden>▼</span>
+      <span id="button">Сладости (нажми меня)!</span>
+      <ul id="list" hidden>
+        <li>Пирожное</li>
+        <li>Пончик</li>
+        <li>Мёд</li>
+      </ul>
+    </div>
+    <script>
+      button.onclick = () => {
+        arrowClose.hidden = !arrowClose.hidden;
+        arrowOpen.hidden = !arrowOpen.hidden;
+        list.hidden = !list.hidden;
+      };
+    </script>
+  </body>
+</html>
