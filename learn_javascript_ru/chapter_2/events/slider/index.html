@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="bg">
+      <button class="arrow prev">⇦</button>
+      <div class="slider">
+        <ul>
+          <li><img src="https://ru.js.cx/carousel/1.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/2.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/3.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/4.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/5.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/6.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/7.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/8.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/9.png" /></li>
+          <li><img src="https://ru.js.cx/carousel/10.png" /></li>
+        </ul>
+      </div>
+      <button class="arrow next">⇨</button>
+    </div>
+    <script>
+      let i = 1;
+      for (let li of document.querySelectorAll("li")) {
+        li.style.position = "relative";
+        li.insertAdjacentHTML(
+          "beforeend",
+          `<span style="position:absolute;left:0;top:0">${i}</span>`
+        );
+        i++;
+      }
+      const width = 130;
+      const count = 3;
+
+      const list = document.querySelector("ul");
+      const listElems = document.querySelectorAll("li")
+
+      let position = 0;
+      document.querySelector(".prev").onclick = () => {
+        position += width * count;
+        position = Math.min(position, 0);
+        list.style.marginLeft = position + "px"
+      }
+      document.querySelector(".next").onclick = () => {
+        position -= width * count;
+        position = Math.max(position, -width * (listElems.length - count));
+        list.style.marginLeft = position + "px"
+      }
+    </script>
+  </body>
+</html>

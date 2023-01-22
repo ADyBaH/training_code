@@ -1,0 +1,59 @@
+.bg {
+  width: 400px;
+  position: relative;
+  padding: 10px 40px;
+  background-color: rgb(205, 204, 204);
+  border: 2px solid black;
+  border-radius: 20px;
+}
+.arrow {
+  position: absolute;
+  top: 40%;
+  padding: 0;
+  background: #ddd;
+  border-radius: 15px;
+  border: 1px solid gray;
+  font-size: 24px;
+  line-height: 24px;
+  color: #444;
+  display: block;
+}
+.slider {
+  width: 400px;
+  overflow: hidden;
+}
+.arrow:focus {
+  outline: none;
+}
+
+.arrow:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+.prev {
+  left: 7px;
+}
+
+.next {
+  right: 7px;
+}
+ul {
+  height: 130px;
+  width: 9999px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+  transition: margin-left 250ms;
+  font-size: 0;
+}
+
+ul img {
+  width: 130px;
+  height: 130px;
+  display: inline-block; /* убираем пустое место вокруг картинок */
+}
+
+ul li {
+  display: inline-block; /* убираем пустое место между элементами списка */
+}
