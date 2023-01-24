@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .button {
+        cursor: pointer;
+        font-style: italic;
+      }
+      .button:hover {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Создайте дерево, 
+      которое по клику на заголовок скрывает-показывает потомков: -->
+    <ul class="tree" id="tree">
+      <li>
+        Животные
+        <ul>
+          <li>
+            Млекопитающие
+            <ul>
+              <li>Коровы</li>
+              <li>Ослы</li>
+              <li>Собаки</li>
+              <li>Тигры</li>
+            </ul>
+          </li>
+          <li>
+            Другие
+            <ul>
+              <li>Змеи</li>
+              <li>Птицы</li>
+              <li>Ящерицы</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Рыбы
+        <ul>
+          <li>
+            Аквариумные
+            <ul>
+              <li>Гуппи</li>
+              <li>Скалярии</li>
+            </ul>
+          </li>
+          <li>
+            Морские
+            <ul>
+              <li>Морская форель</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <script>
+      document.querySelectorAll('li')
+        .forEach(li => {
+          const span = document.createElement("span");
+          if(li.parentNode.querySelector("ul")) span.className = "button";
+          li.prepend(span);
+          span.append(span.nextSibling);
+        })
+        tree.onclick = function(event) {
+          if(event.target.tagName !== "SPAN") return;
+
+          let childrenContainer = event.target.parentNode.querySelector("ul");
+          if(!childrenContainer) return;
+          childrenContainer.hidden = !childrenContainer.hidden;
+        }
+    </script>
+  </body>
+</html>
