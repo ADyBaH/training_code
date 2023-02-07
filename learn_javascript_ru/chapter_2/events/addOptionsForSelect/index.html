@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+      <!-- Используя JavaScript:
+          Выведите значение и текст выбранного пункта.
+          Добавьте пункт: <option value="classic">Классика</option>.
+          Сделайте его выбранным.
+    -->
+  <select id="genres">
+    <option value="rock">Рок</option>
+    <option value="blues" selected>Блюз</option>
+  </select>
+  <script>
+    const log = console.log;
+    document.body.insertAdjacentHTML("afterend", `<p>Значение выбранного пункта: ${genres.value}</p>`)
+    document.body.insertAdjacentHTML("afterend", `<p>Текст выбранного пункта: ${[...genres.options][genres.selectedIndex].text}</p>`)
+    const classic = new Option("Классика", "classic", false, true)
+    genres.append(classic)
+
+    log([...genres.options][genres.selectedIndex].text)
+    log(genres.selectedIndex)
+  </script>
+</body>
+</html>
