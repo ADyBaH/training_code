@@ -4,6 +4,11 @@
 <head>
   <meta charset="utf-8">
   <style>
+    .message-ball {
+      font-style: 20%;
+      line-height: 200px;
+      text-align: center;
+    }
     .circle {
       transition-property: width, height;
       transition-duration: 2s;
@@ -21,10 +26,16 @@
 </head>
 
 <body>
-  <button id="btn">showCircule(150, 150, 100)</button>
+  <button id="btn">Нажми на меня.</button>
   <script>
-    function f(e) {
-      const [cx, cy, radius] = e.target.textContent.match(/[0-9][0-9][0-9]/g)
+
+    function start() {
+      showCircle(150, 150, 100, div => {
+        div.classList.add("message-ball");
+        div.append("Hello world!");
+      });
+    }
+    function showCircle(cx, cy, radius, callback) {
       const div = document.createElement("div");
       div.style.width = 0;
       div.style.height = 0;
@@ -36,9 +47,14 @@
       setTimeout(() => {
         div.style.width = radius * 2 + "px";
         div.style.height = radius * 2 + "px";
-      })
+
+        div.addEventListener("transitionend", function handler() {
+          div.removeEventListener("transitionend", handler);
+          callback(div);
+        })
+      }, 0)
     }
-    btn.addEventListener("click", f);
+    btn.addEventListener("click", start);
   </script>
 </body>
 </html>
