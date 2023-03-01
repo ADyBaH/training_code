@@ -19,8 +19,17 @@ log( "Привет!... Как дела?.....".match(regexp2) ); // ..., .....
 /* Напишите регулярное выражение, которое ищет HTML-цвета в формате #ABCDEF: 
 первым идёт символ #, и потом – 6 шестнадцатеричных символов. */
 
-let regexp = /#[\d\w][\d\w][\d\w][\d\w][\d\w][\d\w][\s;]/g
+let regexp3 = /#[\d\w][\d\w][\d\w][\d\w][\d\w][\d\w][\s;]/g
 // better solution: /#[a-f0-9]{6}\b/gi
-let str = "color:#121212; background-color:#AA00ef bad-colors:f#fddee #fd2 #12345678";
+let str1 = "color:#121212; background-color:#AA00ef bad-colors:f#fddee #fd2 #12345678";
 
-alert( str.match(regexp) )  // #121212,#AA00ef
+console.log( str1.match(regexp) )  // #121212,#AA00ef
+
+// Найти все HTML-комментарии в тексте:
+let regexp = /<!--.*?-->/gs;
+
+let str = `... <!-- My -- comment
+ test --> ..  <!----> ..
+`;
+
+console.log( str.match(regexp) ); // '<!-- My -- comment \n test -->', '<!---->'
