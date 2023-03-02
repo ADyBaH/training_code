@@ -26,10 +26,17 @@ let str1 = "color:#121212; background-color:#AA00ef bad-colors:f#fddee #fd2 #123
 console.log( str1.match(regexp) )  // #121212,#AA00ef
 
 // Найти все HTML-комментарии в тексте:
-let regexp = /<!--.*?-->/gs;
+let regexp4 = /<!--.*?-->/gs;
 
-let str = `... <!-- My -- comment
+let str4 = `... <!-- My -- comment
  test --> ..  <!----> ..
 `;
 
-console.log( str.match(regexp) ); // '<!-- My -- comment \n test -->', '<!---->'
+console.log( str4.match(regexp4) ); // '<!-- My -- comment \n test -->', '<!---->'
+
+// Создайте регулярное выражение, чтобы найти все (открывающие и закрывающие) HTML-теги с их атрибутами.
+let regexp = /<[^<>]+>/g;
+
+let str = '<> <a href="/"> <input type="radio" checked> <b>';
+
+console.log( str.match(regexp) ); // '<a href="/">', '<input type="radio" checked>', '<b>'
