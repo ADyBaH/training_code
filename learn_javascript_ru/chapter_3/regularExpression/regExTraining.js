@@ -35,8 +35,20 @@ let str4 = `... <!-- My -- comment
 console.log( str4.match(regexp4) ); // '<!-- My -- comment \n test -->', '<!---->'
 
 // Создайте регулярное выражение, чтобы найти все (открывающие и закрывающие) HTML-теги с их атрибутами.
-let regexp = /<[^<>]+>/g;
+let regexp5 = /<[^<>]+>/g;
 
-let str = '<> <a href="/"> <input type="radio" checked> <b>';
+let str5 = '<> <a href="/"> <input type="radio" checked> <b>';
 
-console.log( str.match(regexp) ); // '<a href="/">', '<input type="radio" checked>', '<b>'
+// MAC-адрес сетевого интерфейса состоит из 6-ти двузначных шестнадцатеричных чисел, разделённых двоеточиями.
+
+console.log( str5.match(regexp5) ); // '<a href="/">', '<input type="radio" checked>', '<b>'
+
+let regexp = /^[0-9a-f]{2}(:[0-9a-f]{2}){5}$/i;
+
+console.log( regexp.test('01:32:54:67:89:AB') ); // true
+
+console.log( regexp.test('0132546789AB') ); // false (нет двоеточий)
+
+console.log( regexp.test('01:32:54:67:89') ); // false (5 чисел, должно быть 6)
+
+console.log( regexp.test('01:32:54:67:89:ZZ') ) // false (ZZ в конце строки)
