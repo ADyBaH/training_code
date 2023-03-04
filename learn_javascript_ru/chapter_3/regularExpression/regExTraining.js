@@ -43,12 +43,21 @@ let str5 = '<> <a href="/"> <input type="radio" checked> <b>';
 
 console.log( str5.match(regexp5) ); // '<a href="/">', '<input type="radio" checked>', '<b>'
 
-let regexp = /^[0-9a-f]{2}(:[0-9a-f]{2}){5}$/i;
+let regexp6 = /^[0-9a-f]{2}(:[0-9a-f]{2}){5}$/i;
 
-console.log( regexp.test('01:32:54:67:89:AB') ); // true
+console.log( regexp6.test('01:32:54:67:89:AB') ); // true
 
-console.log( regexp.test('0132546789AB') ); // false (нет двоеточий)
+console.log( regexp6.test('0132546789AB') ); // false (нет двоеточий)
 
-console.log( regexp.test('01:32:54:67:89') ); // false (5 чисел, должно быть 6)
+console.log( regexp6.test('01:32:54:67:89') ); // false (5 чисел, должно быть 6)
 
-console.log( regexp.test('01:32:54:67:89:ZZ') ) // false (ZZ в конце строки)
+console.log( regexp6.test('01:32:54:67:89:ZZ') ) // false (ZZ в конце строки)
+
+/* Напишите регулярное выражение, которое соответствует цветам в формате #abc или #abcdef. 
+То есть: # и за ним 3 или 6 шестнадцатеричных цифр. */
+
+let regexp = /#([a-f0-9]{3}){1,2}/gi;
+
+let str = "color: #3f3; background-color: #AA00ef; and: #abcd";
+
+console.log( str.match(regexp) ); // #3f3 #AA00ef
