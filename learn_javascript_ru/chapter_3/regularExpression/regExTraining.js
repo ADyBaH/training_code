@@ -56,8 +56,20 @@ console.log( regexp6.test('01:32:54:67:89:ZZ') ) // false (ZZ в конце ст
 /* Напишите регулярное выражение, которое соответствует цветам в формате #abc или #abcdef. 
 То есть: # и за ним 3 или 6 шестнадцатеричных цифр. */
 
-let regexp = /#([a-f0-9]{3}){1,2}/gi;
+let regexp7 = /#([a-f0-9]{3}){1,2}/gi;
 
-let str = "color: #3f3; background-color: #AA00ef; and: #abcd";
+let str7 = "color: #3f3; background-color: #AA00ef; and: #abcd";
 
-console.log( str.match(regexp) ); // #3f3 #AA00ef
+console.log( str7.match(regexp7) ); // #3f3 #AA00ef
+
+
+/* 
+Напишите регулярное выражение,
+которое ищет любые десятичные числа,
+включая целочисленные, с плавающей точкой и отрицательные.
+*/
+let regexp = /-?\d+(\.\d+)?/g;
+
+let str = "-1.5 0 2 -123.4.";
+
+console.log( str.match(regexp) ); // -1.5, 0, 2, -123.4
