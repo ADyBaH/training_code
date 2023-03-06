@@ -73,3 +73,19 @@ let regexp = /-?\d+(\.\d+)?/g;
 let str = "-1.5 0 2 -123.4.";
 
 console.log( str.match(regexp) ); // -1.5, 0, 2, -123.4
+
+// Создайте функцию parse(expr), которая принимает выражение и возвращает массив из трёх элементов:
+
+function parse(string) {
+  const regexp = /(-?\d+(?:\.\d+)?)\s*([-+*\/])\s*(-?\d+(?:\.\d+)?)/;
+  let answer = string.match(regexp)
+  if(!answer) return [];
+  answer.shift();
+  return answer
+}
+
+let [a, op, b] = parse("1.2 * 3.4");
+
+console.log(a); // 1.2
+console.log(op); // *
+console.log(b); // 3.4
