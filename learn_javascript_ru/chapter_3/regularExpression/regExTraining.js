@@ -68,11 +68,11 @@ console.log( str7.match(regexp7) ); // #3f3 #AA00ef
 которое ищет любые десятичные числа,
 включая целочисленные, с плавающей точкой и отрицательные.
 */
-let regexp = /-?\d+(\.\d+)?/g;
+let regexp8 = /-?\d+(\.\d+)?/g;
 
-let str = "-1.5 0 2 -123.4.";
+let str8 = "-1.5 0 2 -123.4.";
 
-console.log( str.match(regexp) ); // -1.5, 0, 2, -123.4
+console.log( str8.match(regexp8) ); // -1.5, 0, 2, -123.4
 
 // Создайте функцию parse(expr), которая принимает выражение и возвращает массив из трёх элементов:
 
@@ -89,3 +89,11 @@ let [a, op, b] = parse("1.2 * 3.4");
 console.log(a); // 1.2
 console.log(op); // *
 console.log(b); // 3.4
+
+// Напишите регулярное выражение,
+// которое найдёт их все в строке Java JavaScript PHP C++ C:
+
+let regexp = /Java(Script)?|C(\+\+)?|PHP/g;
+
+// Java JavaScript PHP C++ C
+console.log("Java JavaScript PHP C++ C".match(regexp));
