@@ -93,7 +93,18 @@ console.log(b); // 3.4
 // Напишите регулярное выражение,
 // которое найдёт их все в строке Java JavaScript PHP C++ C:
 
-let regexp = /Java(Script)?|C(\+\+)?|PHP/g;
+let regexp9 = /Java(Script)?|C(\+\+)?|PHP/g;
 
 // Java JavaScript PHP C++ C
-console.log("Java JavaScript PHP C++ C".match(regexp));
+console.log("Java JavaScript PHP C++ C".match(regexp9));
+
+// Найдите пары BB-кодов
+let regexp10 = /\[(b|url|quote)\].*?\[\/\1]/gs;
+
+let str10 = `
+  [b]привет![/b]
+  [quote]
+    [url]http://ya.ru[/url]
+  [/quote]
+`;
+console.log( str10.match(regexp10) ); // [url]http://ya.ru[/url]
