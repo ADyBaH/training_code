@@ -108,3 +108,10 @@ let str10 = `
   [/quote]
 `;
 console.log( str10.match(regexp10) ); // [url]http://ya.ru[/url]
+
+// Создайте регулярное выражение для поиска строк в двойных кавычках "...".
+const str11 = ' .. "test me" .. "Скажи \\"Привет\\"!" .. "\\\\ \\"" .. ';
+const regexp11 = /"(\\.|[^"\\])*"/g
+
+// .. "test me" .. "Скажи \"Привет\"!" .. "\\ \"" ..
+console.log(str.match(regexp));
