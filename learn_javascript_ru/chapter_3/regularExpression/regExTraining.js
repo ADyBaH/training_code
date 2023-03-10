@@ -114,4 +114,11 @@ const str11 = ' .. "test me" .. "Скажи \\"Привет\\"!" .. "\\\\ \\"" .
 const regexp11 = /"(\\.|[^"\\])*"/g
 
 // .. "test me" .. "Скажи \"Привет\"!" .. "\\ \"" ..
-console.log(str.match(regexp));
+console.log(str11.match(regexp11));
+
+// Напишите регулярное выражение, которое ищет тег <style...>.
+
+let regexp = /<style(>|\s.*?>)/g;
+
+ // <style>, <style test="...">
+console.log( '<style> <styler> <style test="...">'.match(regexp) );
