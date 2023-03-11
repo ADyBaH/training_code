@@ -118,7 +118,15 @@ console.log(str11.match(regexp11));
 
 // Напишите регулярное выражение, которое ищет тег <style...>.
 
-let regexp = /<style(>|\s.*?>)/g;
+let regexp12 = /<style(>|\s.*?>)/g;
 
  // <style>, <style test="...">
-console.log( '<style> <styler> <style test="...">'.match(regexp) );
+console.log( '<style> <styler> <style test="...">'.match(regexp12) );
+
+// Найдите неотрицательные целые
+
+let regexp13 = /(?<![-\d])\d+/g;
+
+let str13 = "0 12 -5 123 -18";
+
+console.log( str13.match(regexp13) ); // 0, 12, 123
