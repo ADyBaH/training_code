@@ -120,7 +120,7 @@ console.log(str11.match(regexp11));
 
 let regexp12 = /<style(>|\s.*?>)/g;
 
- // <style>, <style test="...">
+// <style>, <style test="...">
 console.log( '<style> <styler> <style test="...">'.match(regexp12) );
 
 // Найдите неотрицательные целые
@@ -130,3 +130,17 @@ let regexp13 = /(?<![-\d])\d+/g;
 let str13 = "0 12 -5 123 -18";
 
 console.log( str13.match(regexp13) ); // 0, 12, 123
+
+// Вставьте после фрагмента
+let regexp14 = /(?<=<body.*?>)/si;
+
+let str14 = `
+<html>
+  <body style="height: 200px">
+  ...
+  </body>
+</html>
+`;
+
+str14 = str14.replace(regexp14, `<h1>Hello</h1>`);
+console.log(str14)
