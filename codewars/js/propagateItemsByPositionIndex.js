@@ -7,6 +7,8 @@
 */
 
 const propagateItemsByPositionIndex = (arr) => arr.map((v, i) => new Array(i + 1).fill(v)).flat(Infinity);
+// or
+const propagateItemsByPositionIndex1 = (arr) => arr.flatMap((v, i) => Array.from({ length: i + 1 }).fill(v));
 
 /*
 old solution:
