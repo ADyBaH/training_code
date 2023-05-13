@@ -25,8 +25,7 @@ function willYouMarryMe(isPositiveAnswer) {
     if (typeof isPositiveAnswer !== 'boolean') {
       regect(new Error('Wrong parameter is passed! Ask her again.'));
     }
-    const answer = isPositiveAnswer ? 'Hooray!!! She said "Yes"!' : 'Oh no, she said "No".';
-    resolve(answer)
+    resolve(isPositiveAnswer ? 'Hooray!!! She said "Yes"!' : 'Oh no, she said "No".')
   });
 }
 
