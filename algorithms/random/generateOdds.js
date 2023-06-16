@@ -9,7 +9,13 @@
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-const generateOdds = (len) => new Array(len).fill().map((_, e) => e + 1 + e);
+
+const generateOdds = (len) => Array.from({ length: len }, (_, index) => index * 2 + 1);
+
+/*
+  old solution:
+  const generateOdds = (len) => new Array(len).fill().map((_, e) => e + 1 + e);
+*/
 
 /*
   old solution:
