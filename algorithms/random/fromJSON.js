@@ -10,7 +10,7 @@
  *
  */
 function fromJSON(proto, json) {
-  const getobject = JSON.parse(json);
-  Object.setPrototypeOf(getobject, proto);
-  return getobject;
+  const getObject = JSON.parse(json);
+  Object.setPrototypeOf(getObject, proto);
+  return getObject;
 }
